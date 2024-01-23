@@ -1,0 +1,47 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.font-clarendon {
+    font-family: 'Clarendon Text Pro', serif;
+}
+
+.bg-root {
+    background: #e2ddcc;
+}
+
+.bg-image {
+    background: #dbd0be;
+}
+
+@layer components {
+
+    .top-bg {
+        @apply flex flex-col bg-black text-white h-72 items-center
+    }
+
+    .navbar {
+        @apply flex bg-yellow-500 text-black h-12 justify-center shadow-md
+    }
+
+    .navbar-list {
+        @apply flex flex-row p-0 space-x-16 text-2xl font-semibold tracking-wide font-clarendon
+    }
+
+    .navbar-list li {
+        @apply transform transition-transform hover:scale-105 hover:text-red-900
+    }
+
+    .search-input {
+        @apply placeholder:text-red-900 font-clarendon font-extrabold cursor-pointer 
+        relative z-10 h-12 w-12 rounded-full border-none bg-transparent pl-12 outline-none 
+        focus:text-black focus:w-80 focus:cursor-text focus:border-black focus:pl-16 focus:pr-4 
+        duration-500 ease-in-out
+    }
+
+    .search-svg {
+        @apply absolute inset-y-0 my-auto h-10 w-[55px] border-r border-transparent 
+        peer-hover:scale-110 transition-transform duration-300 ease-in-out stroke-black px-3.5 
+        peer-hover:stroke-red-900 peer-focus:border-red-900 peer-focus:stroke-red-900 animate-pulse
+    }
+}
