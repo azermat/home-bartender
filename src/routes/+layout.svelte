@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="top-bg"><img src="../src/lib/assets/image.png" alt="" class="w-full h-72" /></div>
+<div class="top-bg"><img src="../src/lib/static/image.png" alt="" class="w-full h-72" /></div>
 
 <nav class="navbar">
 	<div class="absolute left-1">
