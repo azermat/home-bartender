@@ -25,17 +25,25 @@
     }
 
     .navbar-list {
-        @apply flex flex-row p-0 space-x-16 text-2xl font-semibold tracking-wide font-clarendon
+        @apply flex flex-row p-0 space-x-16 text-2xl font-semibold tracking-wide font-clarendon z-50
     }
 
     .navbar-list li {
         @apply transform transition-transform hover:scale-105 hover:text-red-900
     }
 
+    .navbar-list ul {
+        @apply hidden flex-col items-center justify-center absolute space-y-2 p-2 rounded-md -translate-x-1/2 left-1/2
+    }
+
+    .navbar-list li:hover ul {
+        @apply flex bg-yellow-500 border-none w-max
+    }
+    
     .search-input {
         @apply placeholder:text-red-900 font-clarendon font-extrabold cursor-pointer 
         relative z-10 h-12 w-12 rounded-full border-none bg-transparent pl-12 outline-none 
-        focus:text-black focus:w-80 focus:cursor-text focus:border-black focus:pl-16 focus:pr-4 
+        focus:text-black focus:w-80 focus:cursor-pointer focus:border-black focus:pl-16 focus:pr-4 
         duration-500 ease-in-out
     }
 
@@ -43,5 +51,14 @@
         @apply absolute inset-y-0 my-auto h-10 w-[55px] border-r border-transparent 
         peer-hover:scale-110 transition-transform duration-300 ease-in-out stroke-black px-3.5 
         peer-hover:stroke-red-900 peer-focus:border-red-900 peer-focus:stroke-red-900 animate-pulse
+    }
+
+    .cocktails {
+        @apply bg-image relative p-2 my-3 mx-3 h-72 w-64 rounded-xl text-center shadow-sm transform duration-300 
+        transition-transform hover:scale-105 hover:text-red-900 hover:bg-black
+    }
+
+    .drink {
+        @apply bg-image mr-auto
     }
 }

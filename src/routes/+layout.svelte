@@ -1,14 +1,35 @@
 <script>
+	import { onMount } from 'svelte';
+	import { CATEGORIES } from '$lib/constants';
 	import '../styles.css';
+
+	let searchInput;
+
+	const handleSearch = () => {
+		const searchTerm = searchInput.value.trim();
+		if (searchTerm) {
+			const redirectUrl = `/cocktails/${searchTerm.charAt(0).toUpperCase()}${searchTerm.slice(1).toLowerCase()}`;
+			window.location.href = redirectUrl;
+		}
+	};
+
+	onMount(() => {
+		searchInput.addEventListener('keydown', (event) => {
+			if (event.key === 'Enter') {
+				handleSearch();
+			}
+		});
+	});
 </script>
 
-<div class="top-bg"><img src="./src/lib/assets/image.png" alt="" class="w-full h-72"></div>
+<div class="top-bg"><img src="../src/lib/assets/image.png" alt="" class="w-full h-72" /></div>
 
 <nav class="navbar">
 	<div class="absolute left-1">
 		<form>
 			<input
-				type="search"
+				bind:this={searchInput}
+				type="text"
 				placeholder="Mix it up: Suche ein Drink!"
 				class="search-input peer"
 				id="searchInput"
@@ -32,9 +53,18 @@
 
 	<div class="flex items-center">
 		<ul class="navbar-list">
-			<li><a href="/">HOME</a></li>
-			<li><a href="/cocktails">COCKTAILS</a></li>
-			<li><a href="/">SETTINGS</a></li>
+			<li><a sveltekit:prefetch href="/">HOME</a></li>
+			<li>
+				<a sveltekit:prefetch href="/cocktails/Cocktail"
+					>CATEGORIES
+					<ul>
+						{#each CATEGORIES as category}
+							<li><a sveltekit:prefetch href={`/cocktails/${category}`}>{category}</a></li>
+						{/each}
+					</ul>
+				</a>
+			</li>
+			<li><a sveltekit:prefetch href="/">SETTINGS</a></li>
 		</ul>
 	</div>
 </nav>
