@@ -55,11 +55,11 @@
 		<ul class="navbar-list">
 			<li><a sveltekit:prefetch href="/">HOME</a></li>
 			<li>
-				<a sveltekit:prefetch href="/cocktails/Cocktail"
+				<a sveltekit:prefetch href="/categorys/Cocktail"
 					>CATEGORIES
 					<ul>
 						{#each CATEGORIES as category}
-							<li><a sveltekit:prefetch href={`/cocktails/${category}`}>{category}</a></li>
+							<li><a sveltekit:prefetch href={`/categorys/${category}`}>{category}</a></li>
 						{/each}
 					</ul>
 				</a>
