@@ -8,7 +8,7 @@
 	const handleSearch = () => {
 		const searchTerm = searchInput.value.trim();
 		if (searchTerm) {
-			const redirectUrl = `/cocktails/${searchTerm.charAt(0).toUpperCase()}${searchTerm.slice(1).toLowerCase()}`;
+			const redirectUrl = `/categorys/${searchTerm.charAt(0).toUpperCase()}${searchTerm.slice(1).toLowerCase()}`;
 			window.location.href = redirectUrl;
 		}
 	};
